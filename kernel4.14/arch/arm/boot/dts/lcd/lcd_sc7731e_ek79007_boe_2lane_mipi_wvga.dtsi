@@ -1,0 +1,66 @@
+/ { lcds {
+	lcd_sc7731e_ek79007_boe_2lane: lcd_sc7731e_ek79007_boe_2lane {
+
+		sprd,dsi-work-mode = <1>;
+		sprd,dsi-lane-number = <2>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <613000>;
+		sprd,phy-escape-clock = <20000>;
+
+		sprd,width-mm = <61>;
+		sprd,height-mm = <102>;
+
+		sprd,esd-check-enable = <0>;
+		sprd,esd-check-mode = <3>;
+		sprd,esd-check-period = <1000>;
+		/*sprd,esd-check-register = <0x0A>;*/
+		/*sprd,esd-check-value = <0x9C>;*/
+
+		sprd,reset-on-sequence = <1 50>, <0 50>, <1 100>;
+		sprd,reset-off-sequence = <0 20>;
+
+		sprd,initial-command = [
+			23 00 00 02 B2 10
+			23 00 00 02 80 58
+			23 00 00 02 81 47
+			23 00 00 02 82 D4
+			23 00 00 02 83 88
+			23 00 00 02 84 A9
+			23 00 00 02 85 C3
+			23 00 00 02 86 82
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			23 00 00 02 B2 10
+			23 00 00 02 80 58
+			23 00 00 02 81 47
+			23 00 00 02 82 D4
+			23 00 00 02 83 88
+			23 00 00 02 84 A9
+			23 00 00 02 85 C3
+			23 00 00 02 86 82		
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <48000000>;
+				hactive = <1024>;
+				vactive = <600>;
+				hback-porch = <63>;
+				hfront-porch = <65>;
+				vback-porch = <30>;
+				vfront-porch = <40>;
+				hsync-len = <10>;
+				vsync-len = <20>;
+			};
+		};
+	};
+};};

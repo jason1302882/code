@@ -1,0 +1,50 @@
+/ { lcds {
+	lcd_sc9863a_ek79007_boe_4lane: lcd_sc9863a_ek79007_boe_4lane {
+
+		sprd,dsi-work-mode = <1>;
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <500000>;
+		sprd,phy-escape-clock = <20000>;
+
+		sprd,width-mm = <68>;
+		sprd,height-mm = <121>;
+
+		sprd,esd-check-enable = <0>;
+		sprd,esd-check-mode = <3>;
+		sprd,esd-check-period = <1000>;
+		sprd,esd-check-register = <0x0A>;
+		sprd,esd-check-value = <0x9C>;
+
+		sprd,reset-on-sequence = <1 10>, <0 20>, <1 100>;
+		sprd,reset-off-sequence = <0 20>;
+
+		sprd,initial-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <46000000>;
+				hactive = <1024>;
+				vactive = <600>;
+				hback-porch = <300>;
+				hfront-porch = <300>;
+				vback-porch = <12>;
+				vfront-porch = <23>;
+				hsync-len = <10>;
+				vsync-len = <1>;
+			};
+		};
+	};
+};};

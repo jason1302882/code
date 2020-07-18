@@ -1,0 +1,4 @@
+PRODUCT_PACKAGES += gt9xx.ko
+PRODUCT_COPY_FILES += vendor/sprd/modules/devdrv/input/touchscreen/gt9xx/init.gt9xx.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.gt9xx.rc \
+			vendor/sprd/modules/devdrv/input/touchscreen/gt9xx/gt9xx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gt9xx.kl \
+			vendor/sprd/modules/devdrv/input/touchscreen/gt9xx/gt9xx.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/gt9xx.idc

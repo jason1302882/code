@@ -1,0 +1,15 @@
+#
+# GSLX680 touchscreen module
+#
+
+config TOUCHSCREEN_GSLX680
+        tristate "GSLX680 touchscreen driver"
+        depends on I2C
+        help
+          Say Y here if you have a GSLX680 based touchscreen
+          controller.
+
+          If unsure, say N.
+
+          To compile this driver as a module, choose M here: the
+          module will be called gslX680_ts.c.

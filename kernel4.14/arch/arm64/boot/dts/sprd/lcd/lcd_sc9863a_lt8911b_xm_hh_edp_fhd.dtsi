@@ -1,0 +1,46 @@
+/ { lcds {
+	lcd_lt8911b_xm_hh_mipi: lcd_lt8911b_xm_hh_mipi {
+
+		sprd,dsi-work-mode = <1>;
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <1100000>;
+		sprd,phy-escape-clock = <20000>;
+
+		sprd,width-mm = <256>;
+		sprd,height-mm = <144>;
+
+		sprd,esd-check-mode = <3>;
+
+		sprd,reset-on-sequence = <1 10>, <0 20>, <1 100>;
+		sprd,reset-off-sequence = <0 20>;
+
+		sprd,initial-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+			clock-frequency = <153600000>;
+			hactive = <1920>;
+			vactive = <1080>;
+			hback-porch = <48>;
+			hfront-porch = <80>;
+			vback-porch = <3>;
+			vfront-porch = <23>;
+			hsync-len = <32>;
+			vsync-len = <5>;
+			};
+		};
+	};
+};};

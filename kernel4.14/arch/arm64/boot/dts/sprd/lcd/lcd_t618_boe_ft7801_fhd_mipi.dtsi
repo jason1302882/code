@@ -1,0 +1,49 @@
+/ { lcds {
+	lcd_t618_boe_ft8201_fhd_mipi: lcd_t618_boe_ft8201_fhd_mipi {
+
+		sprd,dsi-work-mode = <1>; /* video burst mode*/
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <1100000>;  /* kbps */
+		sprd,phy-escape-clock = <20000>;/* kHz */
+
+		sprd,width-mm = <135>;
+		sprd,height-mm = <218>;
+
+		sprd,esd-check-mode = <3>;
+
+		sprd,reset-on-sequence = <1 10>, <0 20>, <1 100>;
+		sprd,reset-off-sequence = <0 20>;
+
+		sprd,use-dcs-write;
+
+		sprd,initial-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <110500000>;
+				hactive = <1200>;
+				vactive = <1920>;
+				hback-porch = <12>;
+				hfront-porch = <27>;
+				vback-porch = <32>;
+				vfront-porch = <155>;
+				hsync-len = <8>;
+				vsync-len = <8>;
+			};
+		};
+	};
+};};
